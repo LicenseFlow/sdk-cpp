@@ -37,6 +37,22 @@
 
 namespace licenseflow {
 
+// Canonical REST paths (SDK v2.3+). The api.licenseflow.dev gateway serves
+// both these and the legacy /functions/v1/<name> paths indefinitely.
+// Use these with your http_transport.
+namespace endpoints {
+    inline constexpr const char* kVerifyLicense = "/v1/licenses/verify";
+    inline constexpr const char* kActivateLicense = "/v1/licenses/activate";
+    inline constexpr const char* kDeactivateLicense = "/v1/licenses/deactivate";
+    inline constexpr const char* kCheckoutLicense = "/v1/licenses/checkout";
+    inline constexpr const char* kLeaseStatus = "/v1/licenses/lease-status";
+    inline constexpr const char* kOfflineLicense = "/v1/licenses/offline";
+    inline constexpr const char* kRecordUsage = "/v1/usage/record";
+    inline constexpr const char* kResolveEntitlements = "/v1/entitlements/resolve";
+    inline constexpr const char* kCheckEntitlement = "/v1/entitlements/check";
+    inline constexpr const char* kAuthorize = "/v1/access/authorize";
+} // namespace endpoints
+
 // ── Error Classes ────────────────────────────────────────────────────────────
 
 class LicenseFlowException : public std::runtime_error {
